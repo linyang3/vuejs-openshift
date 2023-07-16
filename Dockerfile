@@ -8,7 +8,7 @@ RUN npm run build
 
 FROM nginx:1.17
 COPY ./nginx.conf /etc/nginx/nginx.conf
-WORKDIR /etc/nginx/html
+WORKDIR /etc/nginx/html/console
 COPY --from=BUILD /usr/src/app/dist .
 EXPOSE 8080:8080
 CMD ["nginx", "-g", "daemon off;"]
